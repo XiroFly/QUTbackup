@@ -1,0 +1,7 @@
+D:\迅雷下载\LitCAD-master\src\bin\Debug\lcdb.dll
+D:\迅雷下载\LitCAD-master\src\bin\Debug\lcdb.pdb
+D:\迅雷下载\LitCAD-master\src\lcdb\obj\Debug\lcdb.csproj.AssemblyReference.cache
+D:\迅雷下载\LitCAD-master\src\lcdb\obj\Debug\lcdb.csproj.CoreCompileInputs.cache
+D:\迅雷下载\LitCAD-master\src\lcdb\obj\Debug\lcdb.csproj.Up2Date
+D:\迅雷下载\LitCAD-master\src\lcdb\obj\Debug\lcdb.dll
+D:\迅雷下载\LitCAD-master\src\lcdb\obj\Debug\lcdb.pdb

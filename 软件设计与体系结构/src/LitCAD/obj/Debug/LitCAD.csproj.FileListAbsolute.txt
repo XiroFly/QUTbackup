@@ -1,0 +1,16 @@
+D:\迅雷下载\LitCAD-master\src\bin\Debug\LitCAD.exe.config
+D:\迅雷下载\LitCAD-master\src\bin\Debug\LitCAD.exe
+D:\迅雷下载\LitCAD-master\src\bin\Debug\LitCAD.pdb
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.csproj.AssemblyReference.cache
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.Windows.LayerItemForm.resources
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.Windows.DocumentForm.resources
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.Windows.Canvas.resources
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.Windows.LayersManagementForm.resources
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.Windows.MainWin.resources
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.Properties.Resources.resources
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.Resource1.resources
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.csproj.GenerateResource.cache
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.csproj.CoreCompileInputs.cache
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.csproj.Up2Date
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.exe
+D:\迅雷下载\LitCAD-master\src\LitCAD\obj\Debug\LitCAD.pdb

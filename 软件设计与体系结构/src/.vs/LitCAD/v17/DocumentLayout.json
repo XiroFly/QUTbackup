@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u8FC5\u96F7\u4E0B\u8F7D\\LitCAD-master\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B044BFC-D977-41C1-A86C-AC6B0E3A60C1}|LitCAD\\LitCAD.csproj|d:\\\u8FC5\u96F7\u4E0B\u8F7D\\litcad-master\\src\\litcad\\windows\\mainwin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B044BFC-D977-41C1-A86C-AC6B0E3A60C1}|LitCAD\\LitCAD.csproj|solutionrelative:litcad\\windows\\mainwin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWin.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\\u8FC5\u96F7\u4E0B\u8F7D\\LitCAD-master\\src\\LitCAD\\Windows\\MainWin.cs",
+              "RelativeDocumentMoniker": "LitCAD\\Windows\\MainWin.cs",
+              "ToolTip": "D:\\\u8FC5\u96F7\u4E0B\u8F7D\\LitCAD-master\\src\\LitCAD\\Windows\\MainWin.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "LitCAD\\Windows\\MainWin.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T15:08:33.842Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

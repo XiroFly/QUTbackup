@@ -1,0 +1,7 @@
+D:\迅雷下载\LitCAD-master\src\bin\Debug\lcinterface.dll
+D:\迅雷下载\LitCAD-master\src\bin\Debug\lcinterface.pdb
+D:\迅雷下载\LitCAD-master\src\lcinterface\obj\Debug\lcinterface.csproj.AssemblyReference.cache
+D:\迅雷下载\LitCAD-master\src\lcinterface\obj\Debug\lcinterface.csproj.CoreCompileInputs.cache
+D:\迅雷下载\LitCAD-master\src\lcinterface\obj\Debug\lcinterf.364A75EA.Up2Date
+D:\迅雷下载\LitCAD-master\src\lcinterface\obj\Debug\lcinterface.dll
+D:\迅雷下载\LitCAD-master\src\lcinterface\obj\Debug\lcinterface.pdb
