@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="3">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="cf"></div>
+</body>
+<script>
+    const app={
+        data(){
+            return{
+                name:"白",
+                number:90,
+            }
+        },
+        methods:{
+        changeName(){
+            this.name='fei';
+        },
+        computed:{
+            isHeadname(){
+                if(this.name=='白')return true;
+                else return false;
+            }
+        },
+        watch:{
+         number(news ,old){
+          if(news-old>0)
+         }
+        }
+        }
+    }
+</script>

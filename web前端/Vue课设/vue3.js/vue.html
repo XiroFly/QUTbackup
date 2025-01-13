@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8"/>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="id" > </div>
+   
+    <template id="t1">
+        
+      <div :style="myStyle">
+       <span v-for="(hobby,index) in strings"><input type="checkbox"  :value="hobby" v-model="respond" name="select">{{hobby}}</span>
+       <button @click="change()">{{existence}}</button>
+       <span>{{respond}}</span><div>您的ikun值：{{huifu}}% {{review}}</div>
+       </div>
+      
+         </template>
+    <script>
+    
+        const my_ikun={
+      data:function(){
+        return{
+            string:"选择你的爱好",
+          strings:["唱","跳","rap","篮球","游泳","足球"],
+          respond:[],
+          huifu:0,
+          review:"",
+          myStyle:{
+            margin:'2px',
+            padding:'2px',
+            borderStyle:' solid'
+          },
+        }
+      },
+      methods:{
+       change(){
+        ikun=["唱","跳","rap","篮球"]
+        count=0
+        for(var j=0;j<4;j++)
+          for(var i=0;i<this.respond.length;i++){
+         if(ikun[j]==this.respond[i])count++;
+         }
+      this.huifu=count*100/4.0;
+       }
+      },
+      watch:{
+         huifu(newvalue,oldvalue){
+         if( newvalue==100)this.review="评价：真ikun"
+        else if(newvalue==75)this.review="评价：ikun积极分子"
+        else if(newvalue==50)this.review="评价：ikun发展对象"
+        else this.review="评价：黑粉，滚！"
+         }
+      },
+    
+      computed:{
+       existence(){
+        ikun=["唱","跳","rap","篮球"]
+        count=0
+        for(var j=0;j<4;j++)
+          for(var i=0;i<this.strings.length;i++){
+         if(ikun[j]==this.strings[i])count++;
+         }
+        if(count==4) return "选项存在真ikun";  
+        else return "选什么都是假ikun"
+       
+    }
+     },
+     template:'#t1',
+     } 
+    
+     //--------------------------------------------------------------------------------------------------------------------------------------------//
+     const my_cmp ={//全局组件
+        data() {
+    return {
+      strings: ["语文","数学","英语","化学"],
+      string:"请选择："
+
+    }
+    },//template作为属性存在于组件对象
+    template: `
+   
+    <input type="text" v-model="string"/>
+        <select v-model="string">
+            <option v-for="item in strings" :value="item">{{item}}</option>
+            
+        </select><br>
+        
+    `,
+      }
+      //写一个ikun属性值的组件实现计算属性与监听器；
+     
+        const root={
+            data(){
+                return{
+                    a:{array:[1,2,3,4,5]},
+                    b:[{data:45,name:"张三"},{data:50,name:"李四"},{data:55,name:"王五"}],
+                    c:{key1:"属性1",key2:"属性2"}
+                }
+            },
+            components:{
+              my_cmp,
+            my_ikun,
+           },
+            template:`
+            <my_cmp></my_cmp>
+            <ul>
+        <li v-for="value in a.array">{{value}}</li>
+        <li v-for="(cla ,index) in b">{{index}}:{{cla.name}}:{{cla.data}}</li>
+        <li v-for="(value ,key) in c">{{key}}:{{value}}</li>
+        </ul>
+       <my_ikun></my_ikun>
+        `,
+          
+        }
+     
+      
+    const app=Vue.createApp(root);
+    // app.component('my_cmp',my_cmp);//注册
+        app.mount('#id');
+    
+    </script>
+</body>
+

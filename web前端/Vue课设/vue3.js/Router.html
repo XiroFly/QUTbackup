@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <meta cahrset="utf-8"/>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+</head>
+<body>
+    <div id="routertest">
+        <router-link to ="/动漫">动漫</router-link>
+        <router-link to="/动漫/1">动漫1</router-link>
+        <router-link to="/动漫/2">动漫2</router-link>
+       
+        <router-view></router-view>
+        
+    </div>
+    <script>
+        const picture={
+          template:`
+          <img src="D:\\Download\\插画\\动漫.jpg" style="height:200px ;width:200px"/>
+          `,
+        }
+        const pict={
+            data(){
+            return {
+                src:"D:\\Download\\插画\\动漫"+this.$route.params.id+".jpg"
+            }
+            },
+            mounted(){
+                 console.log(this.src)
+                },
+            template:`
+            <router-view></router-view>
+            <img :src="src" style="height:200px ;width:200px"/>
+           
+            `
+        }
+        const pict1={
+            mounted(){
+            console.log(this.$route)
+            },
+            template:`
+            <img src="D:\\Download\\插画\\pixiv001.jpg" style="height:200px ;width:200px"/>
+            
+            `
+        }
+        const routes=[{path:"/动漫",component:picture},
+              {path:"/动漫/:id",component:pict,
+              children:[
+              {path:"",
+              name:"pixiv",
+              component:pict1
+                 }
+              ]
+            
+            
+            }]//路由表
+        const router=VueRouter.createRouter({//表头
+       // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
+        history: VueRouter.createWebHashHistory(),
+        routes, // `routes: routes` 的缩写
+        })
+        const root=Vue.createApp()
+        root.use(router)
+        root.mount("#routertest")
+    </script>
+</body>
