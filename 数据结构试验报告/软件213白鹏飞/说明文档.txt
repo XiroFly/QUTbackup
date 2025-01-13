@@ -1,0 +1,3 @@
+所在目录：D:\Users\fly\数据结构大作业promax
+主程序：数据结构大作业promax.cpp
+头文件：func.h:函数的声明 structure.h :类的声明与定义

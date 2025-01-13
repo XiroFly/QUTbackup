@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7281B24-DD27-42C5-87B1-8B550AF3AC1A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>学生信息管理系统</RootNamespace>
+    <AssemblyName>学生信息管理系统</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manager_manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manager_manage.Designer.cs">
+      <DependentUpon>manager_manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manage_course.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manage_course.Designer.cs">
+      <DependentUpon>manage_course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manage_manager_information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manage_manager_information.Designer.cs">
+      <DependentUpon>manage_manager_information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manage_SCcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manage_SCcs.Designer.cs">
+      <DependentUpon>manage_SCcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="manage_student_information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="manage_student_information.Designer.cs">
+      <DependentUpon>manage_student_information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="retrieve_password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="retrieve_password.Designer.cs">
+      <DependentUpon>retrieve_password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="student_course.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_course.Designer.cs">
+      <DependentUpon>student_course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_information_management_systemDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>student_information_management_systemDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="student_manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_manage.Designer.cs">
+      <DependentUpon>student_manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="student_SC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_SC.Designer.cs">
+      <DependentUpon>student_SC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manager_manage.resx">
+      <DependentUpon>manager_manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manage_course.resx">
+      <DependentUpon>manage_course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manage_manager_information.resx">
+      <DependentUpon>manage_manager_information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manage_SCcs.resx">
+      <DependentUpon>manage_SCcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manage_student_information.resx">
+      <DependentUpon>manage_student_information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="retrieve_password.resx">
+      <DependentUpon>retrieve_password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student_course.resx">
+      <DependentUpon>student_course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student_manage.resx">
+      <DependentUpon>student_manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student_SC.resx">
+      <DependentUpon>student_SC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="student_information_management_systemDataSet.xsc">
+      <DependentUpon>student_information_management_systemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet.xss">
+      <DependentUpon>student_information_management_systemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet1.xsc">
+      <DependentUpon>student_information_management_systemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet1.xss">
+      <DependentUpon>student_information_management_systemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet10.xsc">
+      <DependentUpon>student_information_management_systemDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet10.xss">
+      <DependentUpon>student_information_management_systemDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet11.xsc">
+      <DependentUpon>student_information_management_systemDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet11.xss">
+      <DependentUpon>student_information_management_systemDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet12.xsc">
+      <DependentUpon>student_information_management_systemDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet12.xss">
+      <DependentUpon>student_information_management_systemDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet2.xsc">
+      <DependentUpon>student_information_management_systemDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet2.xss">
+      <DependentUpon>student_information_management_systemDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet3.xsc">
+      <DependentUpon>student_information_management_systemDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet3.xss">
+      <DependentUpon>student_information_management_systemDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet4.xsc">
+      <DependentUpon>student_information_management_systemDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet4.xss">
+      <DependentUpon>student_information_management_systemDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet5.xsc">
+      <DependentUpon>student_information_management_systemDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet5.xss">
+      <DependentUpon>student_information_management_systemDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet6.xsc">
+      <DependentUpon>student_information_management_systemDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet6.xss">
+      <DependentUpon>student_information_management_systemDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet7.xsc">
+      <DependentUpon>student_information_management_systemDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet7.xss">
+      <DependentUpon>student_information_management_systemDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet8.xsc">
+      <DependentUpon>student_information_management_systemDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet8.xss">
+      <DependentUpon>student_information_management_systemDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet9.xsc">
+      <DependentUpon>student_information_management_systemDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="student_information_management_systemDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>student_information_management_systemDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="student_information_management_systemDataSet9.xss">
+      <DependentUpon>student_information_management_systemDataSet9.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
