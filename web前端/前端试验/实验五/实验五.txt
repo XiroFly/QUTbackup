@@ -1,0 +1,146 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+
+</head>
+<style>
+    .content{
+        border: 1px solid black;
+        width:300px;
+        height: 400px;
+        padding:10px;
+    }
+</style>
+<body>
+    <div id="app1">
+        <div>
+            <router-link to="/">主页|</router-link>
+            <router-link to="/news">新闻|</router-link>
+            <router-link to="/books">图书|</router-link>
+            <router-link to="/videos">视频</router-link>
+        </div>
+        <router-view></router-view>
+    </div>
+    <div id="app2">
+        <div>
+            <router-link to="/">主页|</router-link>
+            <router-link to="/news">新闻|</router-link>
+            <router-link to="/books/1">图书1|</router-link>
+            <router-link to="/books/2">图书2|</router-link>
+            <router-link to="/videos">视频</router-link>
+        </div>
+        <router-view></router-view>
+    </div>
+    <div id="app3">
+        <div>
+            <router-link to="/">主页|</router-link>
+            <router-link to="/news">新闻|</router-link>
+            <router-link to="/books">图书|</router-link>
+            <router-link to="/videos">视频</router-link>
+        </div>
+        <router-view></router-view>
+    </div>
+    <script>
+        const Home={template:'<div class="content">主页面</div>'};
+        const News={template:'<div class="content">新闻页面</div>'};
+        const Books={template:'<div class="content">图书页面</div>'};
+        const Videos={template:'<div class="content">视频页面</div>'};
+        const routes=[
+            {path:'/',component:Home},
+            {path:'/news',component:News},
+            {path:'/books',component:Books},
+            {path:'/videos',component:Videos},
+        ];
+        const router=VueRouter.createRouter({
+            history:VueRouter.createWebHashHistory(),
+            routes
+        });
+        const app=Vue.createApp({});
+        app.use(router);
+        app.mount('#app1');
+    </script>
+    <script>
+        const Home2={template:'<div class="content">主页面</div>'};
+        const News2={template:'<div class="content">新闻页面</div>'};
+        const Books2={template:'<div class="content">图书页面{{$route.param.id}}</div>'};
+        const Videos2={template:'<div class="content">主页面</div>'};
+        const routes2=[
+            {path:'/',component:Home2},
+            {path:'/news',component:News2},
+            {path:'/books/:id',component:Books2},
+            {path:'/videos',component:Videos2},
+        ];
+        const router2=VueRouter.createRouter({
+            history:VueRouter.createWebHashHistory(),
+            routes
+        });
+        const app1=Vue.createApp({});
+        app1.use(router2);
+        app1.mount('#app2');
+    </script>
+    <script>
+        const Home3={template:'<div class="content">主页面<div>'};
+        const News3={template:'<div class="content">新闻页面</div>'};
+        const Books3={
+            data(){
+                return{
+                    books:[
+                        {id:1,title:'HTML',desc:'hello,HTML'},
+                        {id:2,title:'CSS',desc:'hello,css'},
+                        {id:3,title:'JS',desc:'hello,js'}
+                    ]
+                }
+            },
+            template:`<div class="content">
+                <h3>图书列表</h3>
+                <ul>
+                    <li v-for="book in books":key="book.id">
+                        <router-link:to="'/books/book/'+book.id">{{book.title}}</router-link>
+                    </li>
+                </ul>
+                <router-view></router-view>
+                </div>`        
+        };
+        const Book={
+            date(){
+                return{
+                    books:[
+                        {id:1,title:'HTML',desc:'hello,HTML'},
+                        {id:2,title:'CSS',desc:'hello,css'},
+                        {id:3,title:'JS',desc:'hello,js'},
+                    ]
+                }
+            },
+            template:'<div class="content">{{book.desc}}</div>',
+            created(){
+                this.book=this.books[this.Sroute.params.id-1];
+                this.$watch(()=>this.$route.params,(toParams)=>{this.book=this.book[toParams.id-1]});
+
+            }
+        };
+        const Videos3={template:'<div class="content">视频</div>'};
+        const routes3=[
+            {path:'/',component:Home3},
+            {path:'/news',component:News3},
+            {path:'/books',component:Books3,children:[{path:'book/:id',component:Book}]},
+            {path:'/videos',component:Videos3},
+        ];
+        const router3=VueRouter.createRouter({
+            history:VueRouter.createWebHashHistory(),
+            routes
+        });
+        const app2=Vue.createApp({});
+        app2.use(router3);
+        app2.mount('#app3');
+    </script>
+</body>
+
+</html>
+
+

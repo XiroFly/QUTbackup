@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <style>
+        #d1 {
+            margin: 3px;
+            border: 1px solid black;
+            padding: 3px;
+            width: 500px;
+            height: 220px;
+        }
+    </style>
+<script>
+        
+        function f1(){		
+        var zhanghao=document.forms[0].zhanghao.value;
+		if(zhanghao.length>10||zhanghao.length<1){
+		alert("账号格式不正确!");
+		}
+        }
+		function f2(){
+		var date=new Date();
+		var p1=document.getElementById("p1");
+		var gender=document.forms[0].gender;
+		if(gender[1].checked){
+		p1.innerHTML="女士，您好！今天是"+date.toLocaleString();
+		}
+		if(gender[0].checked){
+		p1.innerHTML="先生，您好！今天是"+date.toLocaleString();
+		}
+		}
+		window.onload=function(){
+		var mima=document.forms[0].mima;
+		 mima.onblur=function f3(){//密码
+		 if(mima.value.length<6)
+		alert("密码少于六位！");
+		if(mima.value.toString()==document.forms[0].zhanghao.value.toString())
+		alert("账号密码相同");
+		var querenmima=document.getElementsByName("querenmima")[0];
+		querenmima.onblur=function(){
+		if(querenmima.value!=null&&querenmima.value.toString()!=mima.value.toString())
+		alert("两次输入的密码不相同");
+		}
+		}
+		}
+		function f4(){
+		var form=document.forms[0];
+		var select=document.forms[0].type;
+		var s1=select.options[0];
+		var s2=select.options[1];
+		if(s1.selected){
+		var input=document.getElementsByName("qt")[0];
+		form.removeChild(input);
+		var text=document.getElementsByTagName("span")[0];
+		form.removeChild(text);
+		}
+		else{
+		var qt1 = document.createElement("INPUT");  
+        qt1.type = "radio";  
+        qt1.id = "qts";  
+        qt1.name = "qt";  
+        form.appendChild(qt1);  
+		var text=document.createElement("span");
+		text.innerHTML="接受收费政策";
+		 form.appendChild(text);  
+		}
+		}
+    </script>
+</head>
+<body > 
+    <div id="d1"> 
+        <p id="p1" style="text-align:center"></p>	
+		
+       <p style="text-align:center;"><strong >请注册</strong></p>
+        <form>
+            账号：<input type="text" name="zhanghao" onblur="f1()">1-10位</br>
+            密码：<input type="password" name="mima">不少于6位，不能与账号相同</br>
+            确认密码：<input type="password" name="querenmima"> 两次输入的密码必须相同</br>
+            性别：<input type="radio" name="gender"  onclick="f2()">男<input type="radio" name="gender" onclick="f2()">女</br>
+            账户类别：<select szie="1" name="type"onchange="f4()">
+                <option value="0" selected >普通用户</option>
+                <option value="1" >VIP用户</option>
+            </select>
+        </form>
+    </div>
+</body>
+
+</html>
