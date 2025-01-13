@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 定义目标对象，使用4.2.1节的实现类 -->
+    <bean id="testDao" class="dynamic.jdk.TestDaoImpl"/>
+    <!-- 定义切面 -->
+    <bean id="myAspect" class="aspectj.xml.MyAspect"/>
+    <!-- AOP配置 -->
+    <aop:config>
+    	<!-- 配置切面 -->
+    	<aop:aspect ref="myAspect">
+    		<!-- 配置切入点，通知增强哪些方法 -->
+    		<aop:pointcut expression="execution(* dynamic.jdk.*.*(..))" id="myPointCut"/>
+    		<!-- 将通知与切入点关联 -->
+    		<!-- 关联前置通知 -->
+    		<aop:before method="before" pointcut-ref="myPointCut"/>
+    		<!-- 关联后置返回通知，在目标方法成功执行后执行 -->
+    		<aop:after-returning method="afterReturning" pointcut-ref="myPointCut"/>
+    		<!-- 关联环绕通知 -->
+    		<aop:around method="around" pointcut-ref="myPointCut"/>
+    		<!-- 关联异常通知，没有异常发生时，将不会执行增强，throwing属性设置通知的第二个参数名称 -->
+    		<aop:after-throwing method="except" pointcut-ref="myPointCut" throwing="e"/>
+    		<!-- 关联后置（最终）通知，不管目标方法是否成功，都要执行 -->
+    		<aop:after method="after" pointcut-ref="myPointCut"/>
+    	</aop:aspect>
+    </aop:config>
+</beans>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ItemMapper">
+    <resultMap id="itemMap" type="bean.vo.Item">
+<!--        <result column="goodsid" property="goodsId"/>-->
+        <result column="quantity" property="quantity"/>
+        <association property="goods"  javaType="bean.vo.GoodsVo">
+            <!-- 外键引用的映射 -->
+            <id property="goodsId" column="goodsid" />
+            <result column="goodsname" property="goodsName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <result column="price" property="price"/>
+        </association>
+    </resultMap>
+    <insert id="insertItem">
+        insert into item(goodsid, quantity)  values (#{goodsid},#{quantity})
+    </insert>
+    <insert id="insertByParam">
+        insert into item(goodsid, quantity)  values (#{goodsid},#{quantity})
+    </insert>
+    <update id="update">
+        update item set quantity = #{quantity} where goodsid = #{goodsid}
+    </update>
+    <delete id="delete">
+        delete from item where goodsid=#{id}
+    </delete>
+    <delete id="deleteAll">
+        delete from item where true
+    </delete>
+    <!--    可以查到goods表的-->
+    <select id="selectAll" resultMap="itemMap">
+        select * from item  natural join  goods
+    </select>
+    <select id="selectIdExistence" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM item WHERE goodsid = #{id}
+    </select>
+
+    <select id="selectQuantityById" resultType="java.lang.Integer">
+        select quantity from item where goodsid=#{id}
+    </select>
+    <select id="selectById" resultMap="itemMap">
+        select * from item natural join goods  where goodsid=#{goodsId}
+    </select>
+</mapper>

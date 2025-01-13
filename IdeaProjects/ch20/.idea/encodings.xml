@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/controller/admin/AdminGoodsController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/controller/admin/AdminTypeController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/controller/admin/BaseController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/controller/before/BaseBeforeController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/controller/before/CartController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/controller/before/IndexController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/controller/before/OrderController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/controller/before/ValidateCodeController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/exception/MyExceptionHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/po/Goods.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/service/admin/AdminGoodsServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/service/admin/AdminServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/service/before/CartServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/service/before/UserServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/util/MyUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

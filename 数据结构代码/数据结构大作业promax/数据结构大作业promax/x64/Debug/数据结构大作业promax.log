@@ -1,0 +1,3 @@
+﻿  func.cpp
+D:\Users\fly\数据结构大作业promax\数据结构大作业promax\func.cpp(462,17): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  数据结构大作业promax.vcxproj -> D:\Users\fly\数据结构大作业promax\x64\Debug\数据结构大作业promax.exe

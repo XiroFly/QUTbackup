@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+   <!-- 指定需要扫描的包（包括子包），使注解生效 -->
+   <context:component-scan base-package="bean,service,dao"/>
+   <context:component-scan base-package="servlet"/>
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- MySQL数据库驱动 -->
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<!-- 连接数据库的URL -->
+		<property name="url" value="jdbc:mysql://localhost:3306/shopping?characterEncoding=utf8&amp;serverTimezone=UTC"/>
+		<!-- 连接数据库的用户名 -->
+		<property name="username" value="root"/>
+		<!-- 连接数据库的密码 -->
+		<property name="password" value="zhouwei"/>
+	</bean>
+	<!-- 配置JDBC模板 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!-- 为数据源添加事务管理器 -->
+	<bean id="txManager"
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 编写通知声明事务 -->
+   <tx:advice id="myAdvice" transaction-manager="txManager">
+   		<tx:attributes>
+   			<!-- *表示任意方法 -->
+   			<tx:method name="*" />
+   		</tx:attributes>
+   </tx:advice>
+   <!-- 编写AOP，让Spring自动对目标对象生成代理，需要使用AspectJ的表达式 -->
+   <aop:config>
+   		<!-- 定义切入点 -->
+   		<aop:pointcut expression="execution(* service.impl.*.*(..))" id="txPointCut"/>
+   		<!-- 切面：将切入点与通知关联 -->
+   		<aop:advisor advice-ref="myAdvice" pointcut-ref="txPointCut"/>
+   </aop:config>
+</beans>

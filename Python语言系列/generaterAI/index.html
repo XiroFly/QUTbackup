@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with Assistant</title>
+</head>
+<body>
+    <div>
+        <h1>Chat with Assistant</h1>
+    </div>
+    <div>
+        <div id="chat-box">
+            <textarea>{{ res }}</textarea>
+        </div>
+        <form action="chat" method="post">
+            <input type="text" name="user_input" placeholder="输入你的消息..." />
+            <input type="radio" id="option1" name="sub" value="y">
+            <label for="option1">完成订单</label>            
+            <button type="submit">发送</button>
+        </form> 
+    </div>
+
+    
+</body>
+<script>
+    window.onload = function() {
+        var json = "{{ json }}";  // 将 Flask 变量传递给 JavaScript
+        if (json) {
+            window.alert(json);
+        }
+    };
+</script>
+</html>

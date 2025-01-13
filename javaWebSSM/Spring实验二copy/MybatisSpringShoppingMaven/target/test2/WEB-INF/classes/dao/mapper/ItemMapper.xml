@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ItemDao">
+    <resultMap id="itemResultMap" type="bean.vo.Item">
+        <id property="id" column="id"/>
+        <result property="quantity" column="quantity"/>
+        <association property="goodsVo" select="dao.GoodsDao.getGoodsById" column="goodsid"/>
+    </resultMap>
+    <select id="getCartItems" resultMap="itemResultMap">
+        select id, quantity, goodsid from item where id not in (select itemid from myorder_item)
+    </select>
+    <select id="getItemById" resultMap="itemResultMap">
+        select id, quantity, goodsid from item where goodsid = #{goodsId}
+    </select>
+    <insert id="insertItem">
+        insert into item(id, quantity, goodsid) values(null, 1, #{goodsid})
+    </insert>
+<!--    <insert id="insertItem">-->
+<!--        insert into item(id, quantity, goodsid) values(#{id}, 1, #{goodsid})-->
+<!--    </insert>-->
+    <update id="modifyItem">
+        update item set quantity = #{quantity} where id = #{id}
+    </update>
+    <delete id="deleteItem">
+        delete from item where id = #{id}
+    </delete>
+</mapper>

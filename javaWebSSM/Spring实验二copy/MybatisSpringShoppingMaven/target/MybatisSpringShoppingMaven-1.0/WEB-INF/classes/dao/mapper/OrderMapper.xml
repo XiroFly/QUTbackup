@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OrderDao">
+    <resultMap id="orderResultMap" type="bean.vo.Order">
+        <id property="id" column="oid"/>
+        <result property="createdTime" column="createdtime"/>
+        <collection property="items" ofType="bean.vo.Item">
+            <id property="id" column="id"/>
+            <result property="quantity" column="quantity"/>
+            <association property="goodsVo" select="dao.GoodsDao.getGoodsById" column="goodsid"/>
+        </collection>
+    </resultMap>
+    <select id="getAllOrders" resultMap="orderResultMap">
+        select
+            o.id as oid, o.createdtime, i.*
+        from
+            myorder o
+        left join
+            myorder_item oi
+        on
+            o.id = oi.orderid
+        left join
+            item i
+        on oi.itemid = i.id
+    </select>
+
+    <insert id="insertMyOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into myorder(id, createdtime) values(null, #{createdTime})
+    </insert>
+    <insert id="insertOI">
+        insert into myorder_item(id, orderid, itemid) values(null, #{orderId}, #{itemId})
+    </insert>
+    <select id="selectDeletedItemsId" resultType="java.lang.Integer">
+        select itemid from myorder_item where orderid = #{orderId}
+    </select>
+    <delete id="deleteOI">
+        delete from myorder_item where orderid = #{orderId}
+    </delete>
+    <delete id="deleteItems">
+        delete from item where id in
+        <foreach collection="deletedItemsId" item="itemId" separator="," open="(" close=")">
+            #{itemId}
+        </foreach>
+    </delete>
+    <delete id="deleteMyOrder">
+        delete from myorder where id = #{id}
+    </delete>
+</mapper>

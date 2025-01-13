@@ -1,0 +1,17 @@
+Abstract
+Lymphocytes of vertebrate adaptive immune systems acquired the capability to assemble,
+ from split genes in the germline, billions of functional antigen receptors1,2,3.
+  These receptors show specificity; unlike the broadly tuned receptors of the innate system, 
+  antibodies (Ig) expressed by B cells, for instance, can accurately distinguish between the two enantiomers of organic acids4, 
+  whereas T cell receptors (TCRs) reliably recognize single amino acid replacements in their peptide antigens5. 
+  In developing lymphocytes, antigen receptor genes are assembled from a comparatively small set of germline-encoded 
+  genetic elements in a process referred to as V(D)J recombination6,7. Potential self-reactivity of some antigen receptors 
+  arising from the quasi-random somatic diversification is suppressed by several robust control mechanisms8,9,10,11,12. 
+  For decades, scientists have puzzled over the evolutionary origin of somatically diversifying antigen receptors13,14,15,16. 
+  It has remained unclear how, at the inception of this mechanism, immunologically beneficial expanded receptor diversity was 
+  traded against the emerging risk of destructive self-recognition. Here we explore the hypothesis that in early vertebrates, 
+  sequence microhomologies marking the ends of recombining elements became the crucial targets of selection determining the outcome 
+  of non-homologous end joining-based repair of DNA double-strand breaks generated during RAG-mediated recombination. We find that, 
+  across the main clades of jawed vertebrates, TCRα repertoire diversity is best explained by species-specific extents of such sequence 
+  microhomologies. Thus, selection of germline sequence composition of rearranging elements emerges as a major factor determining the degree 
+  of diversity of somatically generated antigen receptors.

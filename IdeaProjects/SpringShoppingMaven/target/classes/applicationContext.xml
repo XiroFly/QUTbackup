@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+   <!-- 指定需要扫描的包（包括子包），使注解生效 -->
+   <context:component-scan base-package="bean,service"/>
+   <context:component-scan base-package="servlet"/>
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver"/>
+		<property name="url" value="jdbc:postgresql://localhost:5432/javaWeb"/>
+		<property name="username" value="postgres"/>
+		<property name="password" value="2941541654"/>
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="bean.vo"/>
+		<property name="mapperLocations" value="classpath:mapper/*.xml" />
+	</bean>
+	<!--扫包找代理对象出现goodsMapper bean -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="mapper" />
+	</bean>
+	<!-- 为数据源添加事务管理器 在业务层实现事务，和mybatis数据源相同会把数据层的事务也归于·同一个事务-->
+	<bean id="txManager"
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 编写通知声明事务 -->
+   <tx:advice id="myAdvice" transaction-manager="txManager">
+   		<tx:attributes>
+   			<!-- *表示任意方法 -->
+   			<tx:method name="*" />
+   		</tx:attributes>
+   </tx:advice>
+   <!-- 编写AOP，让Spring自动对目标对象生成代理，需要使用AspectJ的表达式 -->
+   <aop:config>
+   		<!-- 定义切入点 -->
+   		<aop:pointcut expression="execution(* service.impl.*.*(..))" id="txPointCut"/>
+   		<!-- 切面：将切入点与通知关联 -->
+   		<aop:advisor advice-ref="myAdvice" pointcut-ref="txPointCut"/>
+   </aop:config>
+</beans>

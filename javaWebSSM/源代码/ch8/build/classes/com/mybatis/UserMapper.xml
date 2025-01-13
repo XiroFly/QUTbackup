@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserDao">
+	<!-- 根据uid查询一个用户信息 -->
+	<select id="selectUserById" parameterType="Integer" 
+		resultType="com.po.MyUser">
+		select * from user where uid = #{uid}
+	</select>
+	<!-- 查询所有用户信息 -->
+	<select id="selectAllUser"  resultType="com.po.MyUser">
+		select * from user where 1=1
+		<if test="uname !=null and uname=''">
+			and uname like concat('%',#{uname},'%')
+		</if>
+	</select>
+	<!-- 添加一个用户 ，#{uname}为com.po.MyUser的属性值-->
+	<insert id="addUser" parameterType="com.po.MyUser">
+		insert into user (uname,usex) values(#{uname},#{usex})
+	</insert>
+	<!-- 修改一个用户 -->
+	<update id="updateUser" parameterType="com.po.MyUser">
+		update user set uname = #{uname},usex = #{usex} where uid = #{uid}
+	</update>
+	<!-- 删除一个用户 -->
+	<delete id="deleteUser" parameterType="Integer"> 
+		delete from user where uid = #{uid}
+	</delete>
+	<!-- 使用if元素，根据条件动态查询用户信息 -->
+	<select id="selectUserByIf"  resultType="com.po.MyUser" parameterType="com.po.MyUser">
+		select * from user where 1=1
+		<if test="uname !=null and uname!=''">
+			and uname like concat('%',#{uname},'%')
+		</if>
+		<if test="usex !=null and usex!=''">
+			and usex = #{usex}
+		</if>
+	</select>
+	<!-- 使用choose、when、otherwise元素，根据条件动态查询用户信息 -->
+	<select id="selectUserByChoose"  resultType="com.po.MyUser" parameterType="com.po.MyUser">
+		select * from user where 1=1
+		<choose>
+		<when test="uname !=null and uname!=''">
+			and uname like concat('%',#{uname},'%')
+		</when>
+		<when test="usex !=null and usex!=''">
+			and usex = #{usex}
+		</when>
+		<otherwise>
+			and uid > 10
+		</otherwise>
+		</choose>
+	</select>
+	<!-- 使用trim元素，根据条件动态查询用户信息 -->
+	<select id="selectUserByTrim"  resultType="com.po.MyUser" parameterType="com.po.MyUser">
+		select * from user 
+		<trim prefix="where" prefixOverrides="and |or">  
+	        <if test="uname !=null and uname!=''">  
+	            and uname like concat('%',#{uname},'%')
+	        </if>  
+	        <if test="usex !=null and usex!=''">  
+	            and usex = #{usex} 
+	        </if>    
+    	</trim>  
+	</select>
+	<!-- 使用where元素，根据条件动态查询用户信息 -->
+	<select id="selectUserByWhere"  resultType="com.po.MyUser" parameterType="com.po.MyUser">
+		select * from user 
+		<where>
+			<if test="uname !=null and uname!=''">
+				and uname like concat('%',#{uname},'%')
+			</if>
+			<if test="usex !=null and usex!=''">
+				and usex = #{usex}
+			</if>
+		</where>
+	</select>
+	<!-- 使用set元素，动态修改一个用户 -->
+	<update id="updateUserBySet" parameterType="com.po.MyUser">
+		update user 
+		<set>
+			<if test="uname != null">uname=#{uname},</if>
+			<if test="usex != null">usex=#{usex}</if>
+		</set>
+		where uid = #{uid}
+	</update>
+	<!-- 使用foreach元素，查询用户信息 -->
+	<select id="selectUserByForeach" resultType="com.po.MyUser"  parameterType="List">
+		select * from user where uid in
+		<foreach item="item" index="index" collection="list"
+		open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	<!-- 使用bind元素进行模糊查询 -->
+	<select id="selectUserByBind" resultType="com.po.MyUser"  parameterType="com.po.MyUser">
+		<!-- bind中uname是com.po.MyUser的属性名 -->
+		<bind name="paran_uname" value="'%' + uname + '%'"/>
+		select * from user where uname like #{paran_uname}
+	</select>
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserDao">
+	<!-- 根据uid查询一个用户信息 -->
+	<select id="selectUserById" parameterType="Integer" 
+		resultType="com.po.MyUser">
+		select * from user where uid = #{uid}
+	</select>
+	<!-- 查询陈姓男性用户信息 -->
+	<select id="selectAllUser"  resultType="com.po.MyUser" parameterType="com.pojo.SeletUserParam">
+		select * from user 
+		where uname like concat('%',#{u_name},'%')
+		and usex = #{u_sex}
+	</select>
+	<!-- 添加一个用户，成功后将主键值回填给uid（po类的属性），#{uname}为com.po.MyUser的属性值-->
+	<insert id="addUser" parameterType="com.po.MyUser" 
+	keyProperty="uid" useGeneratedKeys="true">
+		insert into user (uname,usex) values(#{uname},#{usex})
+	</insert>
+	<!-- 修改一个用户 -->
+	<update id="updateUser" parameterType="com.po.MyUser">
+		update user set uname = #{uname},usex = #{usex} where uid = #{uid}
+	</update>
+	<!-- 删除一个用户 -->
+	<delete id="deleteUser" parameterType="Integer"> 
+		delete from user where uid = #{uid}
+	</delete>
+	<!-- 使用自定义结果集类型 -->
+	<resultMap type="com.pojo.MapUser" id="myResult">
+		<!-- property是com.pojo.MapUser类中的属性-->
+		<!-- column是查询结果的列名，可以来自不同的表 -->
+		<id property="m_uid" column="uid"/>
+		<result property="m_uname" column="uname"/>
+		<result property="m_usex" column="usex"/>
+	</resultMap>
+	<!-- 使用自定义结果集类型查询所有用户 -->
+	<select id="selectResultMap" resultMap="myResult">
+		select * from user
+	</select>
+	<!-- 查询所有用户信息存到Map中 -->
+	<select id="selectAllUserMap"  resultType="map">
+		select * from user 
+	</select>
+	<!-- 一对多 根据uid查询用户及其关联的订单信息：第一种方法（嵌套查询） -->
+	<resultMap type="com.po.MyUser" id="userAndOrders1">
+		<id property="uid" column="uid"/>
+		<result property="uname" column="uname"/>
+		<result property="usex" column="usex"/>
+		<!-- 一对多关联查询，ofType表示集合中的元素类型，将uid传递给selectOrdersById-->
+		<collection property="ordersList" ofType="com.po.Orders" column="uid" 
+		 select="com.dao.OrdersDao.selectOrdersById"/>
+	</resultMap>
+	<select id="selectUserOrdersById1" parameterType="Integer" resultMap="userAndOrders1">
+		select * from user where uid = #{id}
+	</select>
+	<!-- 一对多 根据uid查询用户及其关联的订单信息：第二种方法（嵌套结果） -->
+	<resultMap type="com.po.MyUser" id="userAndOrders2">
+		<id property="uid" column="uid"/>
+		<result property="uname" column="uname"/>
+		<result property="usex" column="usex"/>
+		<!-- 一对多关联查询，ofType表示集合中的元素类型 -->
+		<collection property="ordersList" ofType="com.po.Orders" >
+			<id property="id" column="id"/>
+			<result property="ordersn" column="ordersn"/>
+		</collection>
+	</resultMap>
+	<select id="selectUserOrdersById2" parameterType="Integer" resultMap="userAndOrders2">
+		select u.*,o.id,o.ordersn from user u, orders o where u.uid = o.user_id and u.uid=#{id}
+	</select>
+	<!-- 一对多 根据uid查询用户及其关联的订单信息：第三种方法（使用POJO存储结果） -->
+	<select id="selectUserOrdersById3" parameterType="Integer" resultType="com.pojo.SelectUserOrdersById">
+		select u.*,o.id,o.ordersn from user u, orders o where u.uid = o.user_id and u.uid=#{id}
+	</select>
+</mapper>

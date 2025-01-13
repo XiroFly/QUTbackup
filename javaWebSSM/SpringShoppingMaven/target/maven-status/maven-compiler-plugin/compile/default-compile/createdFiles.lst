@@ -1,0 +1,10 @@
+bean\dao\CartManager.class
+bean\vo\GoodsVo.class
+bean\DBBean.class
+bean\dao\GoodsDAO.class
+bean\Item.class
+bean\dao\GoodsDAOImpl.class
+servlet\AddToCart.class
+servlet\ProcessCart.class
+servlet\GetAllGoods.class
+servlet\ClearCart.class

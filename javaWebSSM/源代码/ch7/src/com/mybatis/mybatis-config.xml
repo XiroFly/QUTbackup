@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 在使用MyBatis嵌套查询方式进行关联查询时，使用MyBatis的延迟加载在一定程度可以提高查询效率 -->
+	<settings>
+		<!-- 打开延迟加载的开关 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 将积极加载改为按需加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+
+	 <mappers><!-- 映射器，告诉 MyBatis到哪里去找映射文件-->
+        <mapper resource="com/mybatis/UserMapper.xml"/>
+        <mapper resource="com/mybatis/PersonMapper.xml"/>
+        <mapper resource="com/mybatis/IdCardMapper.xml"/>
+         <mapper resource="com/mybatis/OrdersMapper.xml"/>
+ 	</mappers>
+</configuration>
+

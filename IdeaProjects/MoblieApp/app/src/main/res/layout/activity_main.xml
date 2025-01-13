@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:rotationX="5" android:orientation="vertical">
+
+    <TextView android:id="@+id/text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/text"
+              android:layout_gravity="center_horizontal"
+
+    />
+    <!--              android:inputType="number"-->
+    <EditText
+            android:id="@+id/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLength="11"
+            android:hint="请输入手机号"
+            android:textColorHint="#55ff0000"
+
+    />
+    <Button
+            android:id="@+id/openSecondActivityButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Second Activity"
+            android:layout_gravity="center_horizontal"
+    />
+    <Button
+            android:id="@+id/myButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Second Activity"
+            android:layout_gravity="center_horizontal"
+            android:onClick="print"
+            android:textColor="@color/mycol"
+            android:textSize="22sp"
+            android:padding="10sp"
+            android:drawableLeft="@drawable/ic_launcher_background"
+            android:drawablePadding="10pt"
+    />
+    <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars" android:id="@+id/imageButton"/>
+
+
+</LinearLayout>

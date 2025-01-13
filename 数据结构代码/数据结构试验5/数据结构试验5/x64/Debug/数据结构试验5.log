@@ -1,0 +1,4 @@
+﻿  数据结构试验5.cpp
+D:\Users\fly\数据结构试验5\数据结构试验5\数据结构试验5.cpp(20): warning C4715: “SequentialList::binarySearch”: 不是所有的控件路径都返回值
+D:\Users\fly\数据结构试验5\数据结构试验5\数据结构试验5.cpp(89): warning C4715: “Dlinkchart::search”: 不是所有的控件路径都返回值
+  数据结构试验5.vcxproj -> D:\Users\fly\数据结构试验5\x64\Debug\数据结构试验5.exe

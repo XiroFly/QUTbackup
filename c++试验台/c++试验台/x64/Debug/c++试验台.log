@@ -1,0 +1,7 @@
+﻿  2417.cpp
+D:\Users\fly\c++试验台\c++试验台\2417.cpp(19,33): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+D:\Users\fly\c++试验台\c++试验台\2417.cpp(44,26): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+D:\Users\fly\c++试验台\c++试验台\2417.cpp(49,45): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+D:\Users\fly\c++试验台\c++试验台\2417.cpp(57,44): warning C4244: “参数”: 从“double”转换到“size_t”，可能丢失数据
+D:\Users\fly\c++试验台\c++试验台\2417.cpp(37,21): warning C4101: “p”: 未引用的局部变量
+  c++试验台.vcxproj -> D:\Users\fly\c++试验台\x64\Debug\c++试验台.exe

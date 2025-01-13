@@ -1,0 +1,349 @@
+from bs4 import BeautifulSoup 
+html="""
+<body>
+<div id="1">外</div>
+</body>
+"""
+soup=BeautifulSoup(html,"html.parser")
+div=soup.find("div")
+print(div.text,div.string)# my_list=[1,2,3,4,5]
+# print(my_list[-1::-1])
+# my_tuple=tuple(my_list)
+# for i in my_tuple:
+#     print(i,end=" ")
+# my_s=set(my_list)
+# print("len="+str(len(my_s)))
+# my_d= {'a': 1, 'b': 2, 'c': 3}
+# print(my_d) 
+# while age:=int(input("输入年龄")): 
+#     if age<18:
+#         print("未成年人")
+#     elif age>=18 and age<60:
+#         print("成年人")
+#     else :print("老年人") 
+# mylist=[i for i in range(1,6)]
+# for i in mylist:
+#     if i%2!=0:
+#         print(pow(i,2))
+# import re
+# def fun (match):
+#        return match.group().upper()
+# mystr=input("输入字符串\n")
+# str_= re.sub(r"\b[a-z]",fun ,mystr)
+# print(str_)
+# class counter:
+#     a=0
+#     def __init__(self,a) -> None:
+#         self.a=a
+#     @staticmethod
+#     def add(a,b):
+#         print(a+b)
+#     def delete(self,b):
+#         print(self.a/b)
+#     def minus(self,b):
+#         print(self.a-b)
+#     def multiply(self,b):
+#         print(self.a*b)
+# b=counter(4)
+# counter.add(5,7)
+# b.delete(7)
+# b.minus(7)
+# b.multiply(7)
+
+# 软件213白鹏飞 202111050676
+import math
+def greet(name):
+    print(f"hello,{name}")
+def get_max(a,b):
+    return max(a,b)
+def square(R):
+    return R*R*math.pi
+a=lambda string: len(string)
+b=lambda x1,x2:max(x1,x2)
+class Student:
+    def __init__(self,name,age,grade) -> None:
+       self.name=name
+       self.age=age
+       self.grade=grade
+    def get_grade(self):
+        grade={"A":90,"B":80,"C":70,"D":60,"F":50}
+        if self.grade>grade["A"]:
+            return "A"
+        elif self.grade>grade["B"]:
+            return "B"
+        elif self.grade>grade["C"]:
+            return "C"
+        elif self.grade>grade["D"]:
+            return "D"
+        else :
+            return "F"
+greet("白鹏飞")
+print(get_max(23,25))
+print(square(9))
+print(a("are"))
+print(b(45,89))
+student=Student("白鹏飞",21,99)
+print(student.get_grade())
+# 1. 写一个程序，读取一个文件的内容，并将文件中包含的所有单词按照字母顺序排序后输出到另一个文件中。
+# 2.写一个程序，遍历一个文件夹内的所有文件和子文件夹，并打印出所有文件的文件名。
+# 3.编写一个程序，提示用户输入两个数字，并计算它们的商。如果用户输入的第二个数字为0，程序应该抛出一个异常并提示用户不能除以0。
+# 4.编写一个程序，提示用户输入一个文件名，并读取该文件的内容。如果文件不存在，程序应该抛出一个异常并提示用户文件不存在。
+#软件213白鹏飞202111050676
+import re
+import os
+def fun(match):
+   return match.group()
+def fun1():
+   with open(r"D:\Users\fly\Python\application2\test3.txt","r") as f:
+     string= f.read()
+     file_list=re.findall("[a-zA-Z]+",string)
+     file_list.sort()
+   with open(r"D:\Users\fly\Python\application2\test33.txt","w") as fs:
+       for i in file_list:
+        fs.write(str(i)+" ")
+
+def fun2(path):
+ thelist= os.walk(path)
+ for root, dirs,files in thelist:
+    for file in files:
+       print(file)
+def fun3():
+   a=int(input(" 输入第一个数字: "))
+   b=int(input(" 输入第二个数字: "))
+   try:
+      if b==0:
+         raise Exception("用户不能除以0\n")
+   except : raise 
+   else :print(a/b)
+def fun4():
+   string= input("输入文件名\n")
+   try:
+      file= open(string,"r",encoding="utf-8")
+      print(file.read())
+   except FileNotFoundError:
+      print(FileNotFoundError("用户文件不存在。"))
+   finally:file.close()
+fun4()
+
+Abstract
+Lymphocytes of vertebrate adaptive immune systems acquired the capability to assemble,
+ from split genes in the germline, billions of functional antigen receptors1,2,3.
+  These receptors show specificity; unlike the broadly tuned receptors of the innate system, 
+  antibodies (Ig) expressed by B cells, for instance, can accurately distinguish between the two enantiomers of organic acids4, 
+  whereas T cell receptors (TCRs) reliably recognize single amino acid replacements in their peptide antigens5. 
+  In developing lymphocytes, antigen receptor genes are assembled from a comparatively small set of germline-encoded 
+  genetic elements in a process referred to as V(D)J recombination6,7. Potential self-reactivity of some antigen receptors 
+  arising from the quasi-random somatic diversification is suppressed by several robust control mechanisms8,9,10,11,12. 
+  For decades, scientists have puzzled over the evolutionary origin of somatically diversifying antigen receptors13,14,15,16. 
+  It has remained unclear how, at the inception of this mechanism, immunologically beneficial expanded receptor diversity was 
+  traded against the emerging risk of destructive self-recognition. Here we explore the hypothesis that in early vertebrates, 
+  sequence microhomologies marking the ends of recombining elements became the crucial targets of selection determining the outcome 
+  of non-homologous end joining-based repair of DNA double-strand breaks generated during RAG-mediated recombination. We find that, 
+  across the main clades of jawed vertebrates, TCRα repertoire diversity is best explained by species-specific extents of such sequence 
+  microhomologies. Thus, selection of germline sequence composition of rearranging elements emerges as a major factor determining the degree 
+  of diversity of somatically generated antigen receptors.Abstract B D DNA For Here Ig In It J Lymphocytes Potential RAG T TCR TCRs These Thus V We a a a 
+accurately acid acids acquired across adaptive against amino antibodies antigen antigen antigen 
+antigen antigen antigens are arising as as assemble assembled at based became beneficial best 
+between billions breaks broadly by by by can capability cell cells clades comparatively composition 
+control crucial decades degree destructive determining determining developing distinguish diversification 
+diversifying diversity diversity diversity double during early elements elements elements emerges emerging 
+enantiomers encoded end ends evolutionary expanded explained explore expressed extents factor find for from 
+from from functional generated generated genes genes genetic germline germline germline has have homologous how 
+hypothesis immune immunologically in in in in inception innate instance is is jawed joining lymphocytes main major
+ marking mechanism mechanisms mediated microhomologies microhomologies non of of of of of of of of of of of of of of of
+  of of of of organic origin outcome over peptide process puzzled quasi random reactivity rearranging receptor 
+  receptor receptors receptors receptors receptors receptors receptors receptors recognition recognize recombination 
+  recombination recombining referred reliably remained repair repertoire replacements risk robust scientists selection
+   selection self self sequence sequence sequence set several show single small somatic somatically somatically some species
+    specific specificity split strand such suppressed system systems targets that that the the the the the the the the 
+    the the the the the the the their this to to traded tuned two unclear unlike vertebrate vertebrates vertebrates was we whereas # 1.编写一个程序，在窗口中显示一个“Hello, World!”的标签。
+# 2.编写一个程序，在窗口中显示两个文本框和一个按钮。当用户单击按钮时，程序应该将两个文本框中的内容相加并在标签中显示结果。
+# 3.编写一个程序，在窗口中显示一个列表框和一个按钮。当用户单击按钮时，程序应该将选定的项从列表框中删除。
+# 4.编写一个程序，爬取百度贴吧中某个贴子的所有图片。
+from tkinter import *
+def application1():
+    root=Tk()
+    root.geometry("300x300+200+200") 
+    root.title("hello")
+    label= Label(root,text="hello,world")
+    label.pack()
+    root.mainloop()    
+def application2():
+    root=Tk()
+    root.geometry("300x300+200+200") 
+    root.title("2")
+    text1= Entry(root)
+    text2=Entry(root)
+    text1.pack()
+    text2.pack()
+    Button(root,text="+",command =lambda:res(text1.get(),text2.get())).pack()
+    def res(text1,text2):
+        sum= int(text1)+int(text2)
+        Label(root,text=sum).pack()
+    root.mainloop()
+def application3():
+    win=Tk()
+    def delete():
+        index=listbox.curselection()
+        if index:
+            listbox.delete(index)
+    win.title("三")
+    win.geometry("300x200")
+    listbox=Listbox(win)
+    listbox.pack(pady=10,expand=False)
+    listbox.configure(height="5",width="10")
+    items = ["Item 1", "Item 2", "Item 3", "Item 4"]
+    for item in items:
+      listbox.insert(END,item)
+    Button(win,text="删除",command=delete).pack(side="bottom")
+    win.mainloop()
+application3()
+
+    import os
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse
+import re
+def download_images(url, folder):#软件213白鹏飞202111050676
+    # 发起网络请求
+    response = requests.get(url)
+    # 解析HTML内容
+    soup = BeautifulSoup(response.content, 'html.parser')
+    # 获取所有的图片标签
+    img_tags = soup.find_all('img', class_='BDE_Image')
+    
+    # 创建保存图片的文件夹
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    
+    # 下载并保存图片
+    for img_tag in img_tags:
+        img_url = img_tag['src']
+        prased_path= urlparse( img_url)
+        img_name = prased_path.path.split('/')[-1]
+        
+        img_path = os.path.join(folder, img_name)
+        
+        print(f'Downloading: {img_url}')
+        
+        try:
+            img_data = requests.get(img_url).content
+            with open(img_path, 'wb') as f:
+                f.write(img_data)
+            print(f'Saved: {img_path}')
+        except Exception as e:
+            print(f'Error occurred while downloading {img_url}: {str(e)}')
+        
+def crawl_images(url):
+    # 发起网络请求
+    response = requests.get(url)
+    # 解析HTML内容
+    soup = BeautifulSoup(response.content, 'html.parser')
+    # 获取所有的页码链接
+    pattern=re.compile(r"[1-9]") #匹配
+    page_links = set(soup.find_all('a',string=pattern))
+    for page_link in page_links:
+        page_url = page_link['href']
+        
+        full_page_url = 'https://tieba.baidu.com' + page_url
+        download_images(full_page_url, 'images')
+
+# 主函数
+if __name__ == '__main__':
+    # 贴子的URL
+    post_url = "https://tieba.baidu.com/p/8481726282"
+    # download_images(post_url,'images' )   
+    # 爬取图片
+    crawl_images(post_url)
+import requests
+from bs4 import BeautifulSoup
+url="https://news.sina.com.cn/"
+#<ul class="uni-blk-list02 list-a list-0427" style="padding-top: 7px;">
+response=requests.get(url)#ISO-8859-1
+response.encoding="utf-8"
+print(response.headers.get('Content-Type'),response.encoding)#要设置编码否则python默认推测为ISO-8859-1，实际为utf-8
+soup=BeautifulSoup(response.text,"html.parser")
+hot_news=soup.find_all("ul",attrs={"class":"uni-blk-list02 list-a list-0427","style":"padding-top: 7px;"})
+for ul in hot_news:
+    for i in ul.descendants:
+        if i.name=="a":
+          print("标题：",i.get_text())
+          print("链接：",i["href"],end="\n\n")
+    import os
+def fun1(path,newpath):
+    def fun12(path):
+        file_contents=[]
+        lis= os.listdir(path)
+        for i in lis:
+          file_path= os.path.join(path,i)
+          if os.path.isfile(file_path):
+            with open(file_path,encoding="utf-8") as fp:#要编码
+                file_contents.append(fp.read())
+        return(file_contents)
+    file_contents=fun12(path)
+    with open(newpath,"w")as fp:
+       fp.writelines(file_contents)
+def fun2():
+    try:
+        fp=None
+        fp= open("application2/不存在.txt","r")
+    except FileNotFoundError:
+        print("处理错误")
+    finally:
+        if fp is not None:
+            fp.close()
+   
+fun1(r"D:\Users\fly\Python\application2",r"D:\Users\fly\Python\application2\作业三.txt")
+import os
+import tkinter as tk
+
+def calculate_file_size():
+    file_path = file_path_entry.get()
+    if os.path.exists(file_path):
+        file_size = os.path.getsize(file_path)#关键
+        size_label.config(text=f"文件大小：{file_size} 字节")
+    else:
+        size_label.config(text="文件不存在")
+
+# 创建主窗口
+window = tk.Tk()
+window.title("文件大小计算器")
+
+# 创建文本框
+file_path_entry = tk.Entry(window, width=50)
+file_path_entry.pack(pady=10)
+
+# 创建标签
+size_label = tk.Label(window, text="请输入文件路径")
+size_label.pack()
+
+# 创建按钮
+calculate_button = tk.Button(window, text="计算文件大小", command=calculate_file_size)
+calculate_button.pack(pady=10)
+
+# 运行主循环
+window.mainloop()
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse, urljoin
+
+def fun(url):
+    rep = requests.get(url) 
+    soup = BeautifulSoup(rep.text, "html.parser")
+    img_tag = soup.find("img")
+    if img_tag is not None:
+        img_url = img_tag.get("src")
+        if img_url is not None:
+            parsed_url = urlparse(url)
+            base_url = f"{parsed_url.scheme}://{parsed_url.netloc}"#要拼接
+            img_url = urljoin(base_url, img_url)
+            img_resp = requests.get(img_url)
+            with open("作业32.jpg", "bw") as fp:
+                fp.write(img_resp.content)
+            print("Downloaded")
+        else:
+            print("Image URL not found")
+    else:
+        print("Image tag not found")
+
+fun("https://www.baidu.com/")

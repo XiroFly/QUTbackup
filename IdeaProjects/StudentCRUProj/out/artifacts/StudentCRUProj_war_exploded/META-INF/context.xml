@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+    <Resource
+            name="jdbc/javaee"
+            type="javax.sql.DataSource"
+            driverClassName="org.postgresql.Driver"
+            url="jdbc:postgresql://localhost:5432/javaWeb"
+            username="postgres"
+            password="2941541654"
+            maxTotal="4"
+            maxIdle="2"
+            maxWaitMillis="5000"/>
+</Context>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.OrderMapper">
+    <resultMap id="orderMap" type="bean.vo.Order">
+        <result column="quantity" property="quantity"/>
+        <result column="id" property="id"/>
+        <result column="createdtime" property="createdTime"/>
+        <result property="goodsId" column="goodsid"/>
+        <association property="goodsVo" javaType="bean.vo.GoodsVo">
+            <id property="goodsId" column="goodsid"/>
+            <result column="goodsname" property="goodsName"/>
+            <result column="price" property="price"/>
+        </association>
+    </resultMap>
+    <insert id="insertByOrders">
+<foreach collection="orders" item="order" separator=";">
+    insert into my_order (id, goodsid, quantity,createdTime) VALUES (#{order.id},#{order.goodsVo.goodsId},#{order.quantity},#{order.createdTime})
+</foreach>
+    </insert>
+    <delete id="deleteById">
+        delete from my_order where id=#{id}
+    </delete>
+    <select id="selectAll" resultMap="orderMap">
+        select * from my_order natural join goods
+    </select>
+    <select id="selectQuantityByGoodsId" resultType="java.lang.Integer">
+        select sum(quantity) from my_order where goodsid = #{goodsId}
+    </select>
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(id) from my_order
+    </select>
+
+</mapper>

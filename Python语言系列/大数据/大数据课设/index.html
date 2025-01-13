@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feature Selection</title>
+</head>
+<body>
+
+<h2>Feature Selection</h2>
+
+<form id="featureForm" method="get" action="predict">
+  <label for="age">Age:</label>
+  <input type="number" id="age" name="age"><br>
+
+  <label for="educationNum">Education Number:</label>
+  <input type="number" id="educationNum" name="educationNum"><br>
+
+  <label for="sex">Sex:</label>
+  <select id="sex" name="sex">
+    <option value="1">Male</option>
+    <option value="0">Female</option>
+  </select><br>
+
+  <label for="capitalGain">Capital Gain:</label>
+  <input type="number" id="capitalGain" name="capitalGain"><br>
+
+  <label for="capitalLoss">Capital Loss:</label>
+  <input type="number" id="capitalLoss" name="capitalLoss"><br>
+
+  <label for="hoursPerWeek">Hours Per Week:</label>
+  <input type="number" id="hoursPerWeek" name="hoursPerWeek"><br>
+
+  <label for="income">Income:</label>
+  <select id="income" name="income">
+    <option value="0"><=50K</option>
+    <option value="1">>50K</option>
+  </select><br>
+
+  <label for="workclass">Workclass:</label>
+  <select id="workclass" name="workclass">
+    <option value="workclass_Self-emp-inc">Self-emp-inc</option>
+    <option value="other">Other</option>
+  </select><br>
+
+  <label for="maritalStatus">Marital Status:</label>
+  <select id="maritalStatus" name="maritalStatus">
+    <option value="marital-status_Divorced">Divorced</option>
+    <option value="marital-status_Married-civ-spouse">Married-civ-spouse</option>
+    <option value="marital-status_Never-married">Never-married</option>
+    <option value="other">Other</option>
+  </select><br>
+
+  <label for="occupation">Occupation:</label>
+  <select id="occupation" name="occupation">
+    <option value="occupation_Exec-managerial">Exec-managerial</option>
+    <option value="occupation_Other-service">Other-service</option>
+    <option value="occupation_Prof-specialty">Prof-specialty</option>
+    <option value="other">Other</option>
+  </select><br>
+
+  <label for="relationship">Relationship:</label>
+  <select id="relationship" name="relationship">
+    <option value="relationship_Not-in-family">Not-in-family</option>
+    <option value="relationship_Own-child">Own-child</option>
+    <option value="relationship_Unmarried">Unmarried</option>
+    <option value="other">Other</option>
+  </select><br>
+
+  <button type="submit">提交</button>
+</form>
+
+</body>
+</html>
